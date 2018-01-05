@@ -4,7 +4,7 @@ from jnpr.junos import Device
 from jnpr.junos.utils.config import Config
 
 
-def pushConfig(user, password, dev):
+def pushconfig(user, password, dev):
 
     device = dev.rstrip()
     device_split = device.split(',')
@@ -14,7 +14,9 @@ def pushConfig(user, password, dev):
 
     print "Executing commands on", firewall
 
-    for i in range(0,100):
+    connected = False
+
+    for i in range(0, 100):
         while True:
             try:
                 firewall.open()
@@ -22,6 +24,9 @@ def pushConfig(user, password, dev):
             except Exception as err:
                 print "Cannot connect to device:", err
                 continue
+            connected = True
+            break
+        if connected:
             break
 
     config_set = """ set snmp community e6Scpjer0Wutnd0Pjo authorization read-only """
@@ -31,7 +36,7 @@ def pushConfig(user, password, dev):
         cu.load(config_set, format='set')
         diff = cu.diff()
         print diff
-        print "Commiting Configuration"
+        print "Committing Configuration"
         cu.commit(timeout=360)
 
     firewall.close()
@@ -44,4 +49,4 @@ if __name__ == "__main__":
     password = getpass.getpass('LDAP Password: ')
 
     for dev in devicelist:
-        pushConfig(user, password, dev)
+        pushconfig(user, password, dev)
