@@ -29,7 +29,7 @@ def pushconfig(user, password, dev):
         if connected:
             break
 
-    config_set = """ set snmp community e6Scpjer0Wutnd0Pjo authorization read-only """
+    config_set = """  """
     print config_set
 
     with Config(firewall, mode='private') as cu:
