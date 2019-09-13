@@ -1,3 +1,5 @@
+from typing import List
+
 bicycles = ['trek', 'cannondale', 'redline', 'specialized']
 print(bicycles[-1].title())
 
@@ -36,6 +38,15 @@ motorcycles.remove(too_expensive)
 print(motorcycles)
 print(f"\nA {too_expensive.title()} is too expensive for me.")
 
+cars: List[str] = ['bmw', 'audi', 'toyota', 'subaru']
+print(cars)
 
+print(sorted(cars))
 
+cars.reverse()
+print(cars)
 
+cars.sort(reverse=True)
+print(cars)
+
+len(cars)
