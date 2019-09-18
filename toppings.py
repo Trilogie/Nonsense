@@ -1,12 +1,30 @@
-requested_topping = [ 'mushrooms', 'onions', 'pineapple']
+requested_toppings = ['mushrooms', 'onions', 'pineapple', 'extra cheese', 'green peppers']
 
-if requested_topping != 'anchovies':
-    print("Hold the anchovies!")
+if 'mushrooms' in requested_toppings:
+    print("Adding mushrooms.")
+if 'pepperoni' in requested_toppings:
+    print("Adding pepperoni.")
+if 'extra cheese' in requested_toppings:
+    print("Adding extra cheese.")
 
-answer = 17
-if answer != 42:
-    print("That is not the correct answer. Please try again!")
+print("\nFinished making your pizza!")
 
-car = 'subaru'
-print("Is car == 'subaru'? I predict True.")
-print(car == 'subaru')
+requested_toppings = []
+
+if requested_toppings:
+    for requested_topping in requested_toppings:
+        print(f"Adding {requested_topping}.")
+    print("\n Finished making your pizza")
+else:
+    print("Are you sure you want a plain pizza?")
+
+available_toppings = ['mushrooms', 'olives', 'green peppers',
+                      'pepperoni', 'pineapple', 'extra cheese']
+requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+
+for requested_topping in requested_toppings:
+    if requested_topping in available_toppings:
+        print(f"\nAdding {requested_topping}.")
+    else:
+        print(f"Sorry, we dont have {requested_topping}.")
+print("\nFinished making your pizza!")
