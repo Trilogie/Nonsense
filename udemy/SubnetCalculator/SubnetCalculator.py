@@ -123,6 +123,7 @@ def subnet_calc():
 
     except KeyboardInterrupt:
         print("\nClosed by user")
+        sys.exit()
 
 
 if __name__ == "__main__":
